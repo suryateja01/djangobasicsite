@@ -1,0 +1,49 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+	<div class="container">
+		<a class="btn btn-sm btn-danger" href="{% url 'create_product'%}"> Add New Product</a>
+	</div>
+	<br>
+	<hr>
+	<br>
+	<div class="col-md-7">
+		<h5>Products List</h5>
+		
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Country</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+				{%if products%}
+					{% for product in products %}
+						<tr>
+							<td>{{product.name}}</td>
+							<td>{{product.price}}</td>
+							<td>{{product.country}}</td>
+							<td><a class="btn btn-sm btn-info" href="{% url 'update_product' product.id %}">Update</a></td>
+
+							<td><a class="btn btn-sm btn-danger" href="{% url 'delete_product' product.id %}">Delete</a></td>
+
+						</tr>
+					{% endfor %}
+				{%else%}
+					<p><b>No products available.</b></p>
+				{%endif%}
+
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+

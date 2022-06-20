@@ -1,0 +1,35 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+	<div class="container">
+		<br>
+		<div class="w3-card" style="width: 50%">
+			<div class="w3-container w3-amber">
+				<h2>Create New Product</h2>
+			</div>
+			<br>
+			<form method="POST" action="">
+				{% csrf_token %}
+				<div class="w3-container">
+					<input class="w3-input" name="name" type="text" placeholder="Product Name">
+				</div>
+					<br>
+				<div class="w3-container">
+					<input class="w3-input" type="text" name="price" placeholder="Product Price" >
+				</div>
+					<br>
+				<div class="w3-container">
+					<input class="w3-input" type="text" name="country" placeholder="Country" >
+				</div>
+					<br>
+				<div class="w3-container">
+					<button class="w3-btn w3-blue-grey">Submit</button>
+				</div>
+					<br>
+			</form>
+			<br>
+		</div>
+	</div>
+
+
+{% endblock %}
