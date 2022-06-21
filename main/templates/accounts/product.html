@@ -1,0 +1,30 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+        <br>
+        <center>
+		<div class="w3-container">
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-button w3-black">Select Country</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                    {% for country in countries %}
+                        <a href="{% url 'view_product' item.id country.code %}" class="w3-bar-item w3-button">{{ country.description}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+            <div class="w3-container w3-left-align">
+                <br>
+                <h2 style="color:rgb(255, 94, 0);"><b>{{item.name}}</b></h2>
+                <br>
+                <b> Price:  </b><h3 style="color:rgb(0, 76, 255);">{{convertedprice}} <sub style="color:rgb(255, 94, 0);">{{currrencycode}}</sub></h3>
+                <br>
+                <h4>Description</h4>
+                <i><p>{{item.description}}</p></i>
+                
+            </div>
+        </div>
+        </center>
+{% endblock content %}

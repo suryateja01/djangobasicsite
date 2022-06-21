@@ -11,7 +11,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from main.forms import ProductForm
-from main.models import Product
+from main.models import Product,Country
 
 # Create your views here.
 from .models import *
@@ -115,3 +115,19 @@ def products(request):
 	products = Product.objects.all()
 
 	return render(request, 'accounts/products.html', {'products':products})
+
+@login_required(login_url='login')
+def viewProduct(request, pk, coucode = 'US'):
+	product = Product.objects.get(id=pk)
+	country = Country.objects.filter(code=coucode).first()
+	countries = Country.objects.all()
+	if country:
+		convertedprice = round(country.conversionrate*product.price,2)
+		currrencycode = country.currrencycode
+	else:
+		convertedprice = product.price
+		currrencycode = 'USD'
+	print(len(countries))
+	context = {'item':product,'convertedprice':convertedprice,
+				'currrencycode':currrencycode,'countries':countries}
+	return render(request, 'accounts/product.html', context)

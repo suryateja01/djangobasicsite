@@ -1,0 +1,43 @@
+[
+    {
+      "model": "main.Country",
+      "pk": 1,
+      "fields": {
+        "code": "US",
+        "description": "United States of America",
+        "currrencycode":"USD",
+        "conversionrate":1.0
+      }
+    },
+    {
+        "model": "main.Country",
+        "pk": 2,
+        "fields": {
+          "code": "IN",
+          "description": "India",
+          "currrencycode":"INR",
+          "conversionrate": 78.1
+        }
+    },
+
+    {
+        "model": "main.Country",
+        "pk": 3,
+        "fields": {
+          "code": "UK",
+          "description": "United Kingdom",
+          "currrencycode":"GBP",
+          "conversionrate":0.81
+        }
+    },
+    {
+        "model": "main.Country",
+        "pk": 4,
+        "fields": {
+          "code": "CN",
+          "description": "China",
+          "currrencycode":"Yuan",
+          "conversionrate":6.69
+        }
+    }
+  ]
